@@ -1,0 +1,21 @@
+.LogIn-Section{
+    min-height: 75vh;
+}
+.login-button{  
+    background: none;
+   border-radius: 20px;
+   transition: all .4s ease;
+   border:1px solid #218838
+}
+.google-icon{
+    width: 9%;
+    margin-right: 120px;
+    border-radius: 50%;
+    
+}
+.login-button:hover{
+    background: #218838;
+    color: white;
+}
+
+

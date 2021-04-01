@@ -1,0 +1,17 @@
+aside a{
+    display: block;
+    color: white;
+    font-weight: 700;    
+    padding: 15px;
+}
+aside a:hover{
+    background-color: #2D524A;
+    text-decoration: none;
+    color: white;
+    
+}
+aside{
+    background-color: #203D37;
+    min-height: 100vh;
+    padding: 35px 30px 20px 0px;
+}

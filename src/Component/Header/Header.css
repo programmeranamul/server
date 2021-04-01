@@ -1,0 +1,12 @@
+header nav a{
+    margin-left: 20px;
+    font-weight: bold;
+    color: black !important;
+}
+.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -10px;
+}
