@@ -7,8 +7,8 @@ const EditProduct = () => {
             <div className="row">
                 <SideMenu />
                 <div className="col-sm-9">
-                    <h4>Edit Product</h4>
-                    <h5>Edit Product Page Coming Soon</h5>
+                    <h4 className="mt-5 mb-4">Edit Product</h4>
+                    <h5>Edit Product Page Coming Soon . . .</h5>
                 </div>
             </div>
         </section>

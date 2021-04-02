@@ -26,7 +26,7 @@ const Order = () => {
     return <Spinner />;
   }
   return (
-    <section className="container">
+    <section className="container order-section">
       {/* Loged In User Details Start*/}
       <LogInUserDetails />
       {/* Loged In User Details End*/}

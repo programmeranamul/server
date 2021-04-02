@@ -5,7 +5,7 @@ import ManageProduct from "../ManageProduct/ManageProduct";
 
 const Admin = () => {
   return ( 
-       <ManageProduct /> 
+       <ManageProduct className=""/> 
   );
 };
 

@@ -6,10 +6,8 @@ import "./AddProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import Spinner from "../Spinner/Spinner";
 const AddProduct = () => {
   const [imageUrl, setImageUrl] = useState(null);
-  const [spinner, setSpinner] = useState(false);
 
   const handelImageUpload = (event) => {
     const imageData = new FormData();
@@ -20,7 +18,6 @@ const AddProduct = () => {
     axios
       .post("https://api.imgbb.com/1/upload", imageData)
       .then(function (response) {
-        console.log(response.data.data.display_url);
         setImageUrl(response.data.data.display_url);    
       })
       .catch(function (error) {
@@ -30,14 +27,14 @@ const AddProduct = () => {
 
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) =>{
-    console.log(data)
+   
     const productData = {
       imageURL:imageUrl,
       name:data.name,
       wight:data.wight,
       price:data.price
     }
-    setSpinner(true);
+  
     fetch("https://strawberry-shortcake-09710.herokuapp.com/addProduct", {
       method:'POST',
       headers:{
@@ -46,16 +43,10 @@ const AddProduct = () => {
       body:JSON.stringify(productData)
     })
     .then(res => {
-      console.log("client side res",res);
-      setSpinner(false);
+        alert("Product Added Successfully")
     })
     
   };
-
-  if (spinner) {
-    return <Spinner />;
-  }
-  
   return (
     <section className="container">
       <div className="row">

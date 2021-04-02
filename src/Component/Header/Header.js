@@ -7,8 +7,8 @@ import "./Header.css";
 const Header = () => {
   const [logedInUser, setLogedInUser] = useContext(userContext);
   return (
-    <header className="container">
-      <Navbar expand="lg">
+    <header className="bg-success">
+      <Navbar expand="lg" className="container">
         <Navbar.Brand as={Link} to="/">
           Fress Food
         </Navbar.Brand>
@@ -36,7 +36,7 @@ const Header = () => {
                 />
               </Nav.Link>
             ) : (
-              <Button as={Link} to="/logIn" variant="success" className="ml-4">
+              <Button as={Link} to="/logIn" variant="danger" className="ml-4">
                 LogIn
               </Button>
             )}

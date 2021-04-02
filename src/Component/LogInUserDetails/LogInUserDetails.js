@@ -7,7 +7,7 @@ const LogInUserDetails = () => {
   const [logedInUser, setLogedInUser] = useContext(userContext);
 
     return (
-        <article className="border col-9 col-md-8 mt-5 rounded mx-auto d-flex flex-column user-details justify-content-center align-items-center pb-5">
+        <article className="border col-12 col-md-9 col-lg-8 mt-5 rounded mx-auto d-flex flex-column user-details justify-content-center align-items-center pb-5">
         <img
           // src={logedInUser.photoURL || imageLink}
           src={logedInUser.photoURL || "https://i.ibb.co/JqYKzYK/avatar.jpg"}

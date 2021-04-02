@@ -7,3 +7,12 @@ thead{
 .delet-icon{
     cursor: pointer;
 }
+.maneg-product-table th{
+    font-size: 19px;
+}
+.maneg-product-table tr td{
+    font-weight: 700;
+}
+.maneg-product-container{
+    min-height: 68vh;
+}
