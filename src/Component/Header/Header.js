@@ -3,7 +3,6 @@ import { Button, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { userContext } from "../../App";
 import "./Header.css";
-import avatar from "../../Img/avatar.jpg";
 
 const Header = () => {
   const [logedInUser, setLogedInUser] = useContext(userContext);
@@ -25,14 +24,14 @@ const Header = () => {
             <Nav.Link as={Link} to="/admin">
               Admin
             </Nav.Link>
-            <Nav.Link as={Link} to="/Deals">
+            <Nav.Link as={Link} to="/deals">
               Deals
             </Nav.Link>
             {logedInUser.displayName || logedInUser.email ? (
               <Nav.Link as={Link} to="/profile">
                 <img
                   className="avatar"
-                  src={logedInUser.photoURL || avatar}
+                  src={logedInUser.photoURL || "https://i.ibb.co/JqYKzYK/avatar.jpg"}
                   alt={logedInUser.displayName || logedInUser.email}
                 />
               </Nav.Link>

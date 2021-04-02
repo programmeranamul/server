@@ -17,6 +17,7 @@ if (!firebase.apps.length) {
 
 const LogIn = () => {
   const [logedInUser, setLogedInUser] = useContext(userContext);
+  const[authError, setAuthError] = useState('')
 
   const history = useHistory();
   const location = useLocation();
@@ -30,14 +31,16 @@ const LogIn = () => {
       .signInWithPopup(googleProvider)
       .then((result) => {
         const userDetails = result.user 
-        console.log(userDetails);      
+     
         setLogedInUser(userDetails)
         history.replace(from);
       })
       .catch((error) => {
-        const errorMassege = error.errorMassege;
+        console.log(error)
+        const errorMassege = error.message;
         console.log(errorMassege);
-        setLogedInUser(errorMassege)
+        setAuthError(errorMassege)
+        console.log(logedInUser);
       });
   };  
  
@@ -49,7 +52,7 @@ const LogIn = () => {
           <button className="login-button mt-5 py-2 w-100 text-left"
             onClick={handelGoogleSingIn}>
             <FontAwesomeIcon icon={faGoogle} className="google-icon" />Continue With Google</button>
-            {logedInUser.errorMassege && <p className="text-danger">{logedInUser.errorMassege}</p>}
+            {setAuthError.errorMassege && <p className="text-danger">{logedInUser.errorMassege}</p>}
         </div>
       </div>
     </section>

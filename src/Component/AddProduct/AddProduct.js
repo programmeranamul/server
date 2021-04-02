@@ -6,19 +6,22 @@ import "./AddProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import Spinner from "../Spinner/Spinner";
 const AddProduct = () => {
   const [imageUrl, setImageUrl] = useState(null);
+  const [spinner, setSpinner] = useState(false);
 
   const handelImageUpload = (event) => {
     const imageData = new FormData();
     imageData.set("key", "1a8a94e26eb6b67f6c478faf06f086bd");
     imageData.append("image", event.target.files[0]);
 
+  
     axios
       .post("https://api.imgbb.com/1/upload", imageData)
       .then(function (response) {
         console.log(response.data.data.display_url);
-        setImageUrl(response.data.data.display_url);
+        setImageUrl(response.data.data.display_url);    
       })
       .catch(function (error) {
         console.log(error);
@@ -34,6 +37,7 @@ const AddProduct = () => {
       wight:data.wight,
       price:data.price
     }
+    setSpinner(true);
     fetch("https://strawberry-shortcake-09710.herokuapp.com/addProduct", {
       method:'POST',
       headers:{
@@ -43,9 +47,15 @@ const AddProduct = () => {
     })
     .then(res => {
       console.log("client side res",res);
+      setSpinner(false);
     })
     
   };
+
+  if (spinner) {
+    return <Spinner />;
+  }
+  
   return (
     <section className="container">
       <div className="row">
@@ -62,7 +72,7 @@ const AddProduct = () => {
                   ref={register({ required: true })}
                   name="name"
                 />
-                {errors.name && <span>Please Enter Your Product Name</span>}
+                {errors.name && <span className="text-danger">Please Enter Your Product Name</span>}
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridPassword">
@@ -73,7 +83,7 @@ const AddProduct = () => {
                   ref={register({ required: true })}
                   name="wight"
                 />
-                {errors.wight && <span>Please Input Your Product Wight</span>}
+                {errors.wight && <span className="text-danger">Please Input Your Product Wight</span>}
               </Form.Group>
             </Form.Row>
             <Form.Row>
@@ -85,7 +95,7 @@ const AddProduct = () => {
                   ref={register({ required: true })}
                   name="price"
                 />
-                {errors.price && <span>Please Enter Your Product Price</span>}
+                {errors.price && <span className="text-danger">Please Enter Your Product Price</span>}
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridPassword">
@@ -96,8 +106,10 @@ const AddProduct = () => {
                     name="file"
                     id="file"
                     className="inputfile"
+                    ref={register({ required: true })}
                     onChange={handelImageUpload}
                   />
+                  {errors.file && <span className="text-danger">Please Enter Your Product Price</span>}
                   <label htmlFor="file" className="text-success">
                     <FontAwesomeIcon icon={faCloudUploadAlt} /> Choose a file
                   </label>

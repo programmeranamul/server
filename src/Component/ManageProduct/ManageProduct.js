@@ -6,13 +6,15 @@ import { faTrashAlt, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import "./ManageProduct.css";
 
 const ManageProduct = () => {
-
   const [products, setProducts] = useState([]);
 
   const fetchProducts = () => {
+  
     fetch('https://strawberry-shortcake-09710.herokuapp.com/allProduct')
     .then(res => res.json())
-    .then(data => setProducts(data))
+    .then(data => {
+      setProducts(data)
+    })
   }
 
   useEffect(() => {

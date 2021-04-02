@@ -1,3 +1,6 @@
+.main-area{
+    min-height: 80vh;
+}
 .serach-area Form button{
    border-top-left-radius: 0;
    border-bottom-left-radius: 0;

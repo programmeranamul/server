@@ -15,6 +15,7 @@ import Profile from "./Component/Profile/Profile";
 import NoMatch from "./Component/NoMatch/NoMatch";
 import CheckOut from "./Component/CheckOut/CheckOut";
 import Order from "./Component/Order/Order";
+import Deals from "./Component/Deals/Deals";
 
 export const userContext = createContext();
 
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/deals">
+            <Deals />
           </Route>
           <PrivateRoute path="/admin">
             <Admin />

@@ -2,7 +2,7 @@ thead{
     background-color: white;
 }
 .check-out-section{
-    min-height: 80vh;
+    min-height: 70vh;
 }
 .check-out-section table tr td{
     font-weight: 700;
@@ -11,3 +11,14 @@ thead{
 .check-out-section table tr th{
     color: rgba(128, 128, 128, 0.5);
 }
+
+
+
+
+
+@media only screen and (max-width:768px) {
+   .responsive-custom-border{
+    border-right: none !important;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+   }
+  }
